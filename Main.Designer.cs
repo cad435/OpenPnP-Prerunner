@@ -35,15 +35,18 @@
             this.loadEditqueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPnPFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offsetPartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offsetFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteByFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteByCommentOrValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openGithubRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openCSVFile = new System.Windows.Forms.OpenFileDialog();
             this.partTable = new System.Windows.Forms.DataGridView();
             this.lblLoadedparts = new System.Windows.Forms.Label();
-            this.offsetFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.offsetPartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openGithubRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partTable)).BeginInit();
             this.SuspendLayout();
@@ -80,12 +83,14 @@
             // 
             // saveEditqueueToolStripMenuItem
             // 
+            this.saveEditqueueToolStripMenuItem.Enabled = false;
             this.saveEditqueueToolStripMenuItem.Name = "saveEditqueueToolStripMenuItem";
             this.saveEditqueueToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.saveEditqueueToolStripMenuItem.Text = "Save edit-queue";
             // 
             // loadEditqueueToolStripMenuItem
             // 
+            this.loadEditqueueToolStripMenuItem.Enabled = false;
             this.loadEditqueueToolStripMenuItem.Name = "loadEditqueueToolStripMenuItem";
             this.loadEditqueueToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.loadEditqueueToolStripMenuItem.Text = "Load edit-queue";
@@ -103,18 +108,76 @@
             this.offsetPartToolStripMenuItem,
             this.offsetFootprintToolStripMenuItem,
             this.deleteByFootprintToolStripMenuItem,
+            this.deleteByCommentOrValueToolStripMenuItem,
             this.toolStripSeparator1,
-            this.mergeValueIntoNameOnExportToolStripMenuItem});
+            this.mergeValueIntoNameOnExportToolStripMenuItem,
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem});
             this.offsetToolStripMenuItem.Name = "offsetToolStripMenuItem";
             this.offsetToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.offsetToolStripMenuItem.Text = "Edit...";
             // 
+            // offsetPartToolStripMenuItem
+            // 
+            this.offsetPartToolStripMenuItem.Name = "offsetPartToolStripMenuItem";
+            this.offsetPartToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.offsetPartToolStripMenuItem.Text = "Apply position offset by Part";
+            this.offsetPartToolStripMenuItem.Click += new System.EventHandler(this.offsetPartToolStripMenuItem_Click);
+            // 
+            // offsetFootprintToolStripMenuItem
+            // 
+            this.offsetFootprintToolStripMenuItem.Name = "offsetFootprintToolStripMenuItem";
+            this.offsetFootprintToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.offsetFootprintToolStripMenuItem.Text = "Apply position offset by Footprint";
+            this.offsetFootprintToolStripMenuItem.Click += new System.EventHandler(this.offsetFootprintToolStripMenuItem_Click);
+            // 
             // deleteByFootprintToolStripMenuItem
             // 
             this.deleteByFootprintToolStripMenuItem.Name = "deleteByFootprintToolStripMenuItem";
-            this.deleteByFootprintToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.deleteByFootprintToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
             this.deleteByFootprintToolStripMenuItem.Text = "Delete by Footprint";
+            this.deleteByFootprintToolStripMenuItem.ToolTipText = "Usually used to remove through-hole footprints";
             this.deleteByFootprintToolStripMenuItem.Click += new System.EventHandler(this.deleteByFootprintToolStripMenuItem_Click);
+            // 
+            // deleteByCommentOrValueToolStripMenuItem
+            // 
+            this.deleteByCommentOrValueToolStripMenuItem.Name = "deleteByCommentOrValueToolStripMenuItem";
+            this.deleteByCommentOrValueToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.deleteByCommentOrValueToolStripMenuItem.Text = "Delete by Comment or Value";
+            this.deleteByCommentOrValueToolStripMenuItem.ToolTipText = "usually used to delete all parts marked as \"do not populate\" or \"dnp\"";
+            this.deleteByCommentOrValueToolStripMenuItem.Click += new System.EventHandler(this.deleteByCommentOrValueToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(304, 6);
+            // 
+            // mergeValueIntoNameOnExportToolStripMenuItem
+            // 
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on export";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
+            // 
+            // doubleNameToValueOnEmptyValueToolStripMenuItem
+            // 
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Enabled = false;
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Name = "doubleNameToValueOnEmptyValueToolStripMenuItem";
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Text = "Double \"Name\" to \"Value\" on empty \"Value\"";
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Click += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_Click);
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.MouseEnter += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_MouseEnter);
+            this.doubleNameToValueOnEmptyValueToolStripMenuItem.MouseLeave += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_MouseLeave);
+            // 
+            // openGithubRepoToolStripMenuItem
+            // 
+            this.openGithubRepoToolStripMenuItem.Name = "openGithubRepoToolStripMenuItem";
+            this.openGithubRepoToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.openGithubRepoToolStripMenuItem.Text = "Open Github Repo";
+            this.openGithubRepoToolStripMenuItem.Click += new System.EventHandler(this.openGithubRepoToolStripMenuItem_Click);
             // 
             // openCSVFile
             // 
@@ -142,41 +205,6 @@
             this.lblLoadedparts.Size = new System.Drawing.Size(73, 13);
             this.lblLoadedparts.TabIndex = 2;
             this.lblLoadedparts.Text = "Loaded Parts:";
-            // 
-            // offsetFootprintToolStripMenuItem
-            // 
-            this.offsetFootprintToolStripMenuItem.Name = "offsetFootprintToolStripMenuItem";
-            this.offsetFootprintToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.offsetFootprintToolStripMenuItem.Text = "Apply position offset by Footprint";
-            this.offsetFootprintToolStripMenuItem.Click += new System.EventHandler(this.offsetFootprintToolStripMenuItem_Click);
-            // 
-            // offsetPartToolStripMenuItem
-            // 
-            this.offsetPartToolStripMenuItem.Name = "offsetPartToolStripMenuItem";
-            this.offsetPartToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.offsetPartToolStripMenuItem.Text = "Apply position offset by Part";
-            this.offsetPartToolStripMenuItem.Click += new System.EventHandler(this.offsetPartToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
-            // 
-            // mergeValueIntoNameOnExportToolStripMenuItem
-            // 
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on export";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
-            // 
-            // openGithubRepoToolStripMenuItem
-            // 
-            this.openGithubRepoToolStripMenuItem.Name = "openGithubRepoToolStripMenuItem";
-            this.openGithubRepoToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
-            this.openGithubRepoToolStripMenuItem.Text = "Open Github Repo";
-            this.openGithubRepoToolStripMenuItem.Click += new System.EventHandler(this.openGithubRepoToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -217,6 +245,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openGithubRepoToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveCSVFile;
+        private System.Windows.Forms.ToolStripMenuItem doubleNameToValueOnEmptyValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteByCommentOrValueToolStripMenuItem;
     }
 }
 

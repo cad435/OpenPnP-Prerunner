@@ -53,6 +53,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\DeleteByComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DeleteByComment.Designer.cs">
+      <DependentUpon>DeleteByComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\DeleteByFootprint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DeleteByComment.resx">
+      <DependentUpon>DeleteByComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\DeleteByFootprint.resx">
       <DependentUpon>DeleteByFootprint.cs</DependentUpon>

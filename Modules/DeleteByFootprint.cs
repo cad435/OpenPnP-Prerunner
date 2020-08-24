@@ -12,16 +12,28 @@ namespace PnPFile_Prerunner.Modules
 {
     public partial class DeleteByFootprint : Form
     {
-        public DeleteByFootprint(ref List<Part> _parts, List<String> footprints)
+        public DeleteByFootprint(ref List<Part> _parts)
         {
             InitializeComponent();
+
+            parts = _parts;
+
+            List<String> footprints = new List<String>();
+            //get all Footprints 
+            foreach (Part p in parts)
+            {
+                if (!footprints.Contains(p.Footprint))
+                {
+                    footprints.Add(p.Footprint);
+                }
+            }
 
             foreach (String s in footprints)
             {
                 listBoxFootprints.Items.Add(s);
             }
 
-            parts = _parts;
+
         }
 
         private List<Part> parts;

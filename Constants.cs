@@ -14,7 +14,7 @@ namespace PnPFile_Prerunner
         public static readonly char[] splitDelimiters = new char[] { ',', ';' };
         //how data is processed inside the Programm:
         //      Designator; Name; Value, Footprint; CenterX; CenterY; Rotation
-        public static readonly String[] ColumnNames = new String[] {"Designator", "Name", "Value", "Footprint", "Center X (mm)", "Center Y (mm)", "Rotation"};
+        public static readonly String[] ColumnNames = new String[] {"Designator", "Name", "Value", "Footprint", "Center-X(mm)", "Center-Y(mm)", "Rotation"};
     }
 
 }
