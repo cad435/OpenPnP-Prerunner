@@ -41,7 +41,6 @@
             this.deleteByCommentOrValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openGithubRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openCSVFile = new System.Windows.Forms.OpenFileDialog();
             this.partTable = new System.Windows.Forms.DataGridView();
@@ -110,8 +109,7 @@
             this.deleteByFootprintToolStripMenuItem,
             this.deleteByCommentOrValueToolStripMenuItem,
             this.toolStripSeparator1,
-            this.mergeValueIntoNameOnExportToolStripMenuItem,
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem});
+            this.mergeValueIntoNameOnExportToolStripMenuItem});
             this.offsetToolStripMenuItem.Name = "offsetToolStripMenuItem";
             this.offsetToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.offsetToolStripMenuItem.Text = "Edit...";
@@ -161,16 +159,6 @@
             this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
             this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
             this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
-            // 
-            // doubleNameToValueOnEmptyValueToolStripMenuItem
-            // 
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Enabled = false;
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Name = "doubleNameToValueOnEmptyValueToolStripMenuItem";
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Text = "Double \"Name\" to \"Value\" on empty \"Value\"";
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.Click += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_Click);
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.MouseEnter += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_MouseEnter);
-            this.doubleNameToValueOnEmptyValueToolStripMenuItem.MouseLeave += new System.EventHandler(this.doubleNameToValueOnEmptyValueToolStripMenuItem_MouseLeave);
             // 
             // openGithubRepoToolStripMenuItem
             // 
@@ -246,7 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openGithubRepoToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveCSVFile;
-        private System.Windows.Forms.ToolStripMenuItem doubleNameToValueOnEmptyValueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteByCommentOrValueToolStripMenuItem;
     }
 }

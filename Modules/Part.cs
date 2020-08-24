@@ -41,9 +41,13 @@ namespace PnPFile_Prerunner.Modules
             return new String[] { Designator, Name, Value, Footprint, CenterX.ToString(), CenterY.ToString(), Rotation.ToString() };
         }
 
-        public String ToExport(bool CollapseNameAndValue = true, bool DoublenameToValue = false)
+        
+
+        public String ToExport(bool CollapseNameAndValue = true)
         {
             string s = "\"" + Designator + "\",\"" + Name;
+
+            //if "Value" should be added to "Name", write that. 
 
             if (CollapseNameAndValue)
             {
@@ -52,14 +56,8 @@ namespace PnPFile_Prerunner.Modules
                     s += "(" + Value + ")";
                 }       
             }
-            else
-            {
-                if (DoublenameToValue && Value == "")
-                    s += "\",\"" + Name;
-                else
-                    s += "\",\"" + Value;
 
-            }
+            //write the rest
 
             s += "\",\"" + Footprint + "\",\"" + CenterX.ToString() + "\",\"" + CenterY.ToString() + "\",\"" + Rotation.ToString() + "\"";
 

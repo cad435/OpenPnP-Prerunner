@@ -105,7 +105,6 @@ namespace PnPFile_Prerunner
         {
 
             bool CollapseNameAndValue = mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-            bool DoubleNameToValue = doubleNameToValueOnEmptyValueToolStripMenuItem.Checked;
 
             RefreshPartsList();
 
@@ -119,19 +118,17 @@ namespace PnPFile_Prerunner
 
             StreamWriter sw = new StreamWriter(sFile);
 
-            //first, write the Designator, followed by a comma and the name
-            sw.Write(Constants.ColumnNames[0] + "," + Constants.ColumnNames[1] + ",");
+            //See https://github.com/openpnp/openpnp/wiki/Importing-Centroid-Data
 
-            //if "Value" should be exported as a separate column, write that column. Otherwise skip it
-            if (!CollapseNameAndValue)
-            {
-                sw.Write(Constants.ColumnNames[2] + ",");
-            }
+            //openPnP wants to have "Designator", "Value" (instead of "Name" or "comment"), "X", "Y", "Layer", "Rotation"
+            // they MUST be surronded with "...
+            //that means we will either "Name(Value)" if collapsing is enabled, or we only use "Name"
 
-            //then, write footprint, CenterX, CenterY and Rotation
-            sw.Write(Constants.ColumnNames[3] + "," + Constants.ColumnNames[4] + "," + Constants.ColumnNames[5] + "," + Constants.ColumnNames[6]);
+            //we will write that style into the first line:
+            sw.WriteLine("\"" + Constants.ColumnNames[0] + "\",\"" + Constants.ColumnNames[2] + "\",\"" + Constants.ColumnNames[3] + "\",\"" + 
+                           Constants.ColumnNames[4] + "\",\"" + Constants.ColumnNames[5] + "\",\"" + Constants.ColumnNames[6] + "\"");
 
-            //end the line and write a blank line
+            //write a blank line
             sw.WriteLine();
             sw.WriteLine();
 
@@ -139,7 +136,7 @@ namespace PnPFile_Prerunner
 
             foreach (Part p in parts)
             {
-                sw.WriteLine(p.ToExport(CollapseNameAndValue, DoubleNameToValue));
+                sw.WriteLine(p.ToExport(CollapseNameAndValue));
             }
 
             sw.Close();
@@ -181,13 +178,6 @@ namespace PnPFile_Prerunner
         private void mergeValueIntoNameOnExportToolStripMenuItem_Click(object sender, EventArgs e)
         {  
             mergeValueIntoNameOnExportToolStripMenuItem.Checked = !mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-
-            //if "merging" is checked, there is no need to double the value...
-            //the "double" operation will be greyed out
-            doubleNameToValueOnEmptyValueToolStripMenuItem.Enabled = !mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-
-
-
         }
 
        
@@ -198,21 +188,6 @@ namespace PnPFile_Prerunner
         }
 
         private void mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave(object sender, EventArgs e)
-        {
-            offsetToolStripMenuItem.DropDown.AutoClose = true;
-        }
-
-        private void doubleNameToValueOnEmptyValueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            doubleNameToValueOnEmptyValueToolStripMenuItem.Checked = !doubleNameToValueOnEmptyValueToolStripMenuItem.Checked;
-        }
-
-        private void doubleNameToValueOnEmptyValueToolStripMenuItem_MouseEnter(object sender, EventArgs e)
-        {
-            offsetToolStripMenuItem.DropDown.AutoClose = false;
-        }
-
-        private void doubleNameToValueOnEmptyValueToolStripMenuItem_MouseLeave(object sender, EventArgs e)
         {
             offsetToolStripMenuItem.DropDown.AutoClose = true;
         }
