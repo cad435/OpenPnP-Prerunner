@@ -1,0 +1,12 @@
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\bin\Debug\PnPFile_Prerunner.exe.config
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\bin\Debug\PnPFile_Prerunner.exe
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\bin\Debug\PnPFile_Prerunner.pdb
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.csprojAssemblyReference.cache
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Properties.Resources.resources
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.csproj.GenerateResource.cache
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.csproj.CoreCompileInputs.cache
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.exe
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.pdb
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Main.resources
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.Importer.resources
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.DeleteByFootprint.resources
