@@ -148,7 +148,8 @@ namespace PnPFile_Prerunner
 
         private void openGithubRepoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //you must not remove this line or this tool-strip Item!. If you want to add a link to your own repo, make a new tab!
+            System.Diagnostics.Process.Start("https://github.com/cad435/OpenPnP-Prerunner");
         }
     }
 }
