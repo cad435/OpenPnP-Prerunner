@@ -105,6 +105,7 @@ namespace PnPFile_Prerunner
         {
 
             bool CollapseNameAndValue = mergeValueIntoNameOnExportToolStripMenuItem.Checked;
+            bool PreferValue = preferValueOverDescriptionToolStripMenuItem.Checked;
 
             RefreshPartsList();
 
@@ -136,7 +137,7 @@ namespace PnPFile_Prerunner
 
             foreach (Part p in parts)
             {
-                sw.WriteLine(p.ToExport(CollapseNameAndValue));
+                sw.WriteLine(p.ToExport(CollapseNameAndValue, PreferValue));
             }
 
             sw.Close();
@@ -174,23 +175,7 @@ namespace PnPFile_Prerunner
         {
             
         }
-
-        private void mergeValueIntoNameOnExportToolStripMenuItem_Click(object sender, EventArgs e)
-        {  
-            mergeValueIntoNameOnExportToolStripMenuItem.Checked = !mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-        }
-
-       
-
-        private void mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter(object sender, EventArgs e)
-        {
-            offsetToolStripMenuItem.DropDown.AutoClose = false;
-        }
-
-        private void mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave(object sender, EventArgs e)
-        {
-            offsetToolStripMenuItem.DropDown.AutoClose = true;
-        }
+      
 
         #endregion
         private void openGithubRepoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,6 +194,36 @@ namespace PnPFile_Prerunner
 
             //display the new parts
             DisplayParts();
+        }
+
+        private void mergeValueIntoNameOnExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mergeValueIntoNameOnExportToolStripMenuItem.Checked = !mergeValueIntoNameOnExportToolStripMenuItem.Checked;
+        }
+
+        private void mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            offsetToolStripMenuItem.DropDown.AutoClose = false;
+        }
+
+        private void mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            offsetToolStripMenuItem.DropDown.AutoClose = true;
+        }
+
+        private void preferValueOverDescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            preferValueOverDescriptionToolStripMenuItem.Checked = !preferValueOverDescriptionToolStripMenuItem.Checked;
+        }
+
+        private void preferValueOverDescriptionToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            offsetToolStripMenuItem.DropDown.AutoClose = false;
+        }
+
+        private void preferValueOverDescriptionToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            offsetToolStripMenuItem.DropDown.AutoClose = true;
         }
     }
 }

@@ -40,12 +40,14 @@
             this.deleteByFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteByCommentOrValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openGithubRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openCSVFile = new System.Windows.Forms.OpenFileDialog();
             this.partTable = new System.Windows.Forms.DataGridView();
             this.lblLoadedparts = new System.Windows.Forms.Label();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
+            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferValueOverDescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partTable)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +111,9 @@
             this.deleteByFootprintToolStripMenuItem,
             this.deleteByCommentOrValueToolStripMenuItem,
             this.toolStripSeparator1,
-            this.mergeValueIntoNameOnExportToolStripMenuItem});
+            this.exportPreferencesToolStripMenuItem,
+            this.mergeValueIntoNameOnExportToolStripMenuItem,
+            this.preferValueOverDescriptionToolStripMenuItem});
             this.offsetToolStripMenuItem.Name = "offsetToolStripMenuItem";
             this.offsetToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.offsetToolStripMenuItem.Text = "Edit...";
@@ -117,21 +121,21 @@
             // offsetPartToolStripMenuItem
             // 
             this.offsetPartToolStripMenuItem.Name = "offsetPartToolStripMenuItem";
-            this.offsetPartToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.offsetPartToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.offsetPartToolStripMenuItem.Text = "Apply position offset by Part";
             this.offsetPartToolStripMenuItem.Click += new System.EventHandler(this.offsetPartToolStripMenuItem_Click);
             // 
             // offsetFootprintToolStripMenuItem
             // 
             this.offsetFootprintToolStripMenuItem.Name = "offsetFootprintToolStripMenuItem";
-            this.offsetFootprintToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.offsetFootprintToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.offsetFootprintToolStripMenuItem.Text = "Apply position offset by Footprint";
             this.offsetFootprintToolStripMenuItem.Click += new System.EventHandler(this.offsetFootprintToolStripMenuItem_Click);
             // 
             // deleteByFootprintToolStripMenuItem
             // 
             this.deleteByFootprintToolStripMenuItem.Name = "deleteByFootprintToolStripMenuItem";
-            this.deleteByFootprintToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.deleteByFootprintToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.deleteByFootprintToolStripMenuItem.Text = "Delete by Footprint";
             this.deleteByFootprintToolStripMenuItem.ToolTipText = "Usually used to remove through-hole footprints";
             this.deleteByFootprintToolStripMenuItem.Click += new System.EventHandler(this.deleteByFootprintToolStripMenuItem_Click);
@@ -139,7 +143,7 @@
             // deleteByCommentOrValueToolStripMenuItem
             // 
             this.deleteByCommentOrValueToolStripMenuItem.Name = "deleteByCommentOrValueToolStripMenuItem";
-            this.deleteByCommentOrValueToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
+            this.deleteByCommentOrValueToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.deleteByCommentOrValueToolStripMenuItem.Text = "Delete by Comment or Value";
             this.deleteByCommentOrValueToolStripMenuItem.ToolTipText = "usually used to delete all parts marked as \"do not populate\" or \"dnp\"";
             this.deleteByCommentOrValueToolStripMenuItem.Click += new System.EventHandler(this.deleteByCommentOrValueToolStripMenuItem_Click);
@@ -147,18 +151,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(304, 6);
-            // 
-            // mergeValueIntoNameOnExportToolStripMenuItem
-            // 
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(307, 22);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on export";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
             // 
             // openGithubRepoToolStripMenuItem
             // 
@@ -193,6 +186,37 @@
             this.lblLoadedparts.Size = new System.Drawing.Size(73, 13);
             this.lblLoadedparts.TabIndex = 2;
             this.lblLoadedparts.Text = "Loaded Parts:";
+            // 
+            // mergeValueIntoNameOnExportToolStripMenuItem
+            // 
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on Export";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
+            // 
+            // exportPreferencesToolStripMenuItem
+            // 
+            this.exportPreferencesToolStripMenuItem.Enabled = false;
+            this.exportPreferencesToolStripMenuItem.Name = "exportPreferencesToolStripMenuItem";
+            this.exportPreferencesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.exportPreferencesToolStripMenuItem.Text = "Export Preferences";
+            // 
+            // preferValueOverDescriptionToolStripMenuItem
+            // 
+            this.preferValueOverDescriptionToolStripMenuItem.Checked = true;
+            this.preferValueOverDescriptionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.preferValueOverDescriptionToolStripMenuItem.Name = "preferValueOverDescriptionToolStripMenuItem";
+            this.preferValueOverDescriptionToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.preferValueOverDescriptionToolStripMenuItem.Text = "Prefer \"Value\" over \"Name\"";
+            this.preferValueOverDescriptionToolStripMenuItem.ToolTipText = "This will dump the \"Description\" Field and writes the \"Value\" field on export if " +
+    "such exist\r\nThis will only affect if Merging is NOT enabled\r\n";
+            this.preferValueOverDescriptionToolStripMenuItem.Click += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_Click);
+            this.preferValueOverDescriptionToolStripMenuItem.MouseEnter += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseEnter);
+            this.preferValueOverDescriptionToolStripMenuItem.MouseLeave += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseLeave);
             // 
             // Main
             // 
@@ -231,10 +255,12 @@
         private System.Windows.Forms.ToolStripMenuItem offsetPartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offsetFootprintToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openGithubRepoToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveCSVFile;
         private System.Windows.Forms.ToolStripMenuItem deleteByCommentOrValueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportPreferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferValueOverDescriptionToolStripMenuItem;
     }
 }
 

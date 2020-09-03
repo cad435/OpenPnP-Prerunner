@@ -43,18 +43,29 @@ namespace PnPFile_Prerunner.Modules
 
         
 
-        public String ToExport(bool CollapseNameAndValue = true)
+        public String ToExport(bool CollapseNameAndValue = true, bool PreferValueOverName = true)
         {
-            string s = "\"" + Designator + "\",\"" + Name;
+            string s = "\"" + Designator + "\",\"";
 
             //if "Value" should be added to "Name", write that. 
+            //PreferValueOverComment will not be applied
 
             if (CollapseNameAndValue)
             {
                 if (Value != "")
                 {
-                    s += "(" + Value + ")";
-                }       
+                    s += Name + "(" + Value + ")";
+                }
+            }
+            //if we will not merge name and value into one field AND Value is preferred AND there is ACTUALLY a value
+            else if (!CollapseNameAndValue && PreferValueOverName && Value != "")
+            {
+                s += Value;
+            }
+            else
+            {
+                //else, just write the name
+                s += Name;
             }
 
             //write the rest
