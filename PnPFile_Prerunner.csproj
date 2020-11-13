@@ -53,6 +53,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\CountParts.cs" />
     <Compile Include="Modules\DeleteByComment.cs">
       <SubType>Form</SubType>
     </Compile>

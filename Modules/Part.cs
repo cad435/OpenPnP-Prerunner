@@ -52,9 +52,11 @@ namespace PnPFile_Prerunner.Modules
 
             if (CollapseNameAndValue)
             {
+                s += Name;
+
                 if (Value != "")
                 {
-                    s += Name + "(" + Value + ")";
+                    s += "(" + Value + ")";
                 }
             }
             //if we will not merge name and value into one field AND Value is preferred AND there is ACTUALLY a value

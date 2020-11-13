@@ -34,20 +34,22 @@
             this.saveEditqueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadEditqueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPnPFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportPartsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetPartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteByFootprintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteByCommentOrValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferValueOverDescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openGithubRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openCSVFile = new System.Windows.Forms.OpenFileDialog();
             this.partTable = new System.Windows.Forms.DataGridView();
             this.lblLoadedparts = new System.Windows.Forms.Label();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
-            this.mergeValueIntoNameOnExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferValueOverDescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savePartsCount = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partTable)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +72,8 @@
             this.openPnPCSVToolStripMenuItem,
             this.saveEditqueueToolStripMenuItem,
             this.loadEditqueueToolStripMenuItem,
-            this.exportPnPFileToolStripMenuItem});
+            this.exportPnPFileToolStripMenuItem,
+            this.exportPartsCountToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "File...";
@@ -78,7 +81,7 @@
             // openPnPCSVToolStripMenuItem
             // 
             this.openPnPCSVToolStripMenuItem.Name = "openPnPCSVToolStripMenuItem";
-            this.openPnPCSVToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.openPnPCSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openPnPCSVToolStripMenuItem.Text = "Open PnP CSV";
             this.openPnPCSVToolStripMenuItem.Click += new System.EventHandler(this.openPnPCSVToolStripMenuItem_Click);
             // 
@@ -86,22 +89,29 @@
             // 
             this.saveEditqueueToolStripMenuItem.Enabled = false;
             this.saveEditqueueToolStripMenuItem.Name = "saveEditqueueToolStripMenuItem";
-            this.saveEditqueueToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.saveEditqueueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveEditqueueToolStripMenuItem.Text = "Save edit-queue";
             // 
             // loadEditqueueToolStripMenuItem
             // 
             this.loadEditqueueToolStripMenuItem.Enabled = false;
             this.loadEditqueueToolStripMenuItem.Name = "loadEditqueueToolStripMenuItem";
-            this.loadEditqueueToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.loadEditqueueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadEditqueueToolStripMenuItem.Text = "Load edit-queue";
             // 
             // exportPnPFileToolStripMenuItem
             // 
             this.exportPnPFileToolStripMenuItem.Name = "exportPnPFileToolStripMenuItem";
-            this.exportPnPFileToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.exportPnPFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportPnPFileToolStripMenuItem.Text = "Export PnP-File";
             this.exportPnPFileToolStripMenuItem.Click += new System.EventHandler(this.exportPnPFileToolStripMenuItem_Click);
+            // 
+            // exportPartsCountToolStripMenuItem
+            // 
+            this.exportPartsCountToolStripMenuItem.Name = "exportPartsCountToolStripMenuItem";
+            this.exportPartsCountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportPartsCountToolStripMenuItem.Text = "Export Parts Count";
+            this.exportPartsCountToolStripMenuItem.Click += new System.EventHandler(this.exportPartsCountToolStripMenuItem_Click);
             // 
             // offsetToolStripMenuItem
             // 
@@ -153,6 +163,37 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
             // 
+            // exportPreferencesToolStripMenuItem
+            // 
+            this.exportPreferencesToolStripMenuItem.Enabled = false;
+            this.exportPreferencesToolStripMenuItem.Name = "exportPreferencesToolStripMenuItem";
+            this.exportPreferencesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.exportPreferencesToolStripMenuItem.Text = "Export Preferences";
+            // 
+            // mergeValueIntoNameOnExportToolStripMenuItem
+            // 
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on Export";
+            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
+            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
+            // 
+            // preferValueOverDescriptionToolStripMenuItem
+            // 
+            this.preferValueOverDescriptionToolStripMenuItem.Checked = true;
+            this.preferValueOverDescriptionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.preferValueOverDescriptionToolStripMenuItem.Name = "preferValueOverDescriptionToolStripMenuItem";
+            this.preferValueOverDescriptionToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.preferValueOverDescriptionToolStripMenuItem.Text = "Prefer \"Value\" over \"Name\"";
+            this.preferValueOverDescriptionToolStripMenuItem.ToolTipText = "This will dump the \"Description\" Field and writes the \"Value\" field on export if " +
+    "such exist\r\nThis will only affect if Merging is NOT enabled\r\n";
+            this.preferValueOverDescriptionToolStripMenuItem.Click += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_Click);
+            this.preferValueOverDescriptionToolStripMenuItem.MouseEnter += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseEnter);
+            this.preferValueOverDescriptionToolStripMenuItem.MouseLeave += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseLeave);
+            // 
             // openGithubRepoToolStripMenuItem
             // 
             this.openGithubRepoToolStripMenuItem.Name = "openGithubRepoToolStripMenuItem";
@@ -186,37 +227,6 @@
             this.lblLoadedparts.Size = new System.Drawing.Size(73, 13);
             this.lblLoadedparts.TabIndex = 2;
             this.lblLoadedparts.Text = "Loaded Parts:";
-            // 
-            // mergeValueIntoNameOnExportToolStripMenuItem
-            // 
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Checked = true;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Name = "mergeValueIntoNameOnExportToolStripMenuItem";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Text = "Merge \"Value\" into \"Name\" on Export";
-            this.mergeValueIntoNameOnExportToolStripMenuItem.Click += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_Click);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseEnter += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter);
-            this.mergeValueIntoNameOnExportToolStripMenuItem.MouseLeave += new System.EventHandler(this.mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave);
-            // 
-            // exportPreferencesToolStripMenuItem
-            // 
-            this.exportPreferencesToolStripMenuItem.Enabled = false;
-            this.exportPreferencesToolStripMenuItem.Name = "exportPreferencesToolStripMenuItem";
-            this.exportPreferencesToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.exportPreferencesToolStripMenuItem.Text = "Export Preferences";
-            // 
-            // preferValueOverDescriptionToolStripMenuItem
-            // 
-            this.preferValueOverDescriptionToolStripMenuItem.Checked = true;
-            this.preferValueOverDescriptionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.preferValueOverDescriptionToolStripMenuItem.Name = "preferValueOverDescriptionToolStripMenuItem";
-            this.preferValueOverDescriptionToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-            this.preferValueOverDescriptionToolStripMenuItem.Text = "Prefer \"Value\" over \"Name\"";
-            this.preferValueOverDescriptionToolStripMenuItem.ToolTipText = "This will dump the \"Description\" Field and writes the \"Value\" field on export if " +
-    "such exist\r\nThis will only affect if Merging is NOT enabled\r\n";
-            this.preferValueOverDescriptionToolStripMenuItem.Click += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_Click);
-            this.preferValueOverDescriptionToolStripMenuItem.MouseEnter += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseEnter);
-            this.preferValueOverDescriptionToolStripMenuItem.MouseLeave += new System.EventHandler(this.preferValueOverDescriptionToolStripMenuItem_MouseLeave);
             // 
             // Main
             // 
@@ -261,6 +271,8 @@
         private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportPreferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferValueOverDescriptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportPartsCountToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog savePartsCount;
     }
 }
 

@@ -225,5 +225,57 @@ namespace PnPFile_Prerunner
         {
             offsetToolStripMenuItem.DropDown.AutoClose = true;
         }
+
+        private void exportPartsCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            RefreshPartsList();
+
+            savePartsCount.Filter = "csv files (*.csv)|*.csv";
+            if (savePartsCount.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            CountParts cParts = new CountParts(parts);
+
+            int SumParts = parts.Count();
+
+            cParts.Count();
+
+
+            String sFile = savePartsCount.FileName;
+            StreamWriter sw = new StreamWriter(sFile);
+
+
+
+            //we will write Headline:
+            sw.WriteLine("Part; Footprint; Amount");
+
+            //write a blank line
+            sw.WriteLine();
+            sw.WriteLine();
+
+            bool CollapseNameAndValue = mergeValueIntoNameOnExportToolStripMenuItem.Checked;
+            bool PreferValue = preferValueOverDescriptionToolStripMenuItem.Checked;
+
+            String s;
+
+            while ((s = cParts.ExportNext(CollapseNameAndValue, PreferValue)) != "")
+            {
+                sw.WriteLine(s);
+            }
+
+            //write blank lines
+            sw.WriteLine();
+            sw.WriteLine("================================================================================================================");
+
+            sw.WriteLine("SUM; SUM; " + SumParts);
+
+            sw.Close();
+            sw.Dispose();
+
+        }
     }
 }
