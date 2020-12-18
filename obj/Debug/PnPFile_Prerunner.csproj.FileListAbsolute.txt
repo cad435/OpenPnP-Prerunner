@@ -11,3 +11,4 @@ E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\D
 E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.Importer.resources
 E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.DeleteByFootprint.resources
 E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.DeleteByComment.resources
+E:\_DATEN\Alexander\Projekte\_Projektordner\Pick_n_Place\PnPFile_Prerunner\obj\Debug\PnPFile_Prerunner.Modules.Exporter.resources

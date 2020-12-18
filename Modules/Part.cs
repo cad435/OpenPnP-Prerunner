@@ -45,36 +45,73 @@ namespace PnPFile_Prerunner.Modules
 
         
 
-        public String ToExport(bool CollapseNameAndValue = true, bool PreferValueOverName = true)
+        public String ToExport(bool CollapseNameAndValue, bool PreferValueOverName,  bool NamefieldEnable, bool footprintEnable, bool CenterXEnable, bool CenterYEnable, bool LayerEnable, bool RotationEnable, bool AddMMSuffix)
         {
-            string s = "\"" + Designator + "\",\"";
+            string s = "\"" + Designator;
 
             //if "Value" should be added to "Name", write that. 
             //PreferValueOverComment will not be applied
 
-            if (CollapseNameAndValue)
+            if (NamefieldEnable)
             {
-                s += Name;
+                s += "\",\"";
 
-                if (Value != "")
+                if (CollapseNameAndValue)
                 {
-                    s += "(" + Value + ")";
+                    s += Name;
+
+                    if (Value != "")
+                    {
+                        s += "(" + Value + ")";
+                    }
+                }
+                //if we will not merge name and value into one field AND Value is preferred AND there is ACTUALLY a value
+                else if (!CollapseNameAndValue && PreferValueOverName && Value != "")
+                {
+                    s += Value;
+                }
+                else
+                {
+                    //else, just write the name
+                    s += Name;
                 }
             }
-            //if we will not merge name and value into one field AND Value is preferred AND there is ACTUALLY a value
-            else if (!CollapseNameAndValue && PreferValueOverName && Value != "")
+            //write the rest if needed
+            if (footprintEnable)
             {
-                s += Value;
-            }
-            else
-            {
-                //else, just write the name
-                s += Name;
+                s += "\",\"" + Footprint; ;
             }
 
-            //write the rest
+            if (CenterXEnable)
+            {
+                s += "\",\"" + CenterX.ToString();
+                if (AddMMSuffix)
+                {
+                    s += "mm";
+                }
+            }
 
-            s += "\",\"" + Footprint + "\",\"" + CenterX.ToString() + "\",\"" + CenterY.ToString() + "\",\"" + Rotation.ToString() + "\"";
+
+            if (CenterYEnable)
+            {
+                s += "\",\"" + CenterY.ToString();
+                if (AddMMSuffix)
+                {
+                    s += "mm";
+                }
+            }
+
+            if (LayerEnable)
+            {
+                s += "\",\"" + Layer;
+            }
+
+            if (RotationEnable)
+            {
+                s += "\",\"" + Rotation.ToString();
+            }
+
+            s += "\"";
 
             return s;
         }

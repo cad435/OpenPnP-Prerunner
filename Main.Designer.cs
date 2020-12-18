@@ -33,7 +33,6 @@
             this.openPnPCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveEditqueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadEditqueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportPnPFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPartsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offsetPartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +47,8 @@
             this.openCSVFile = new System.Windows.Forms.OpenFileDialog();
             this.partTable = new System.Windows.Forms.DataGridView();
             this.lblLoadedparts = new System.Windows.Forms.Label();
-            this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.savePartsCount = new System.Windows.Forms.SaveFileDialog();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partTable)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +71,7 @@
             this.openPnPCSVToolStripMenuItem,
             this.saveEditqueueToolStripMenuItem,
             this.loadEditqueueToolStripMenuItem,
-            this.exportPnPFileToolStripMenuItem,
+            this.exportToolStripMenuItem,
             this.exportPartsCountToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -98,13 +97,6 @@
             this.loadEditqueueToolStripMenuItem.Name = "loadEditqueueToolStripMenuItem";
             this.loadEditqueueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadEditqueueToolStripMenuItem.Text = "Load edit-queue";
-            // 
-            // exportPnPFileToolStripMenuItem
-            // 
-            this.exportPnPFileToolStripMenuItem.Name = "exportPnPFileToolStripMenuItem";
-            this.exportPnPFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportPnPFileToolStripMenuItem.Text = "Export PnP-File";
-            this.exportPnPFileToolStripMenuItem.Click += new System.EventHandler(this.exportPnPFileToolStripMenuItem_Click);
             // 
             // exportPartsCountToolStripMenuItem
             // 
@@ -228,6 +220,13 @@
             this.lblLoadedparts.TabIndex = 2;
             this.lblLoadedparts.Text = "Loaded Parts:";
             // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Text = "Export...";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,20 +258,19 @@
         private System.Windows.Forms.DataGridView partTable;
         private System.Windows.Forms.ToolStripMenuItem saveEditqueueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadEditqueueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportPnPFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteByFootprintToolStripMenuItem;
         private System.Windows.Forms.Label lblLoadedparts;
         private System.Windows.Forms.ToolStripMenuItem offsetPartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offsetFootprintToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem openGithubRepoToolStripMenuItem;
-        private System.Windows.Forms.SaveFileDialog saveCSVFile;
         private System.Windows.Forms.ToolStripMenuItem deleteByCommentOrValueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mergeValueIntoNameOnExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportPreferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferValueOverDescriptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportPartsCountToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog savePartsCount;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
     }
 }
 

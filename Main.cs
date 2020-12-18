@@ -102,52 +102,6 @@ namespace PnPFile_Prerunner
 
         }
 
-        private void exportPnPFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            bool CollapseNameAndValue = mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-            bool PreferValue = preferValueOverDescriptionToolStripMenuItem.Checked;
-
-            RefreshPartsList();
-
-            saveCSVFile.Filter = "csv files (*.csv)|*.csv";
-            if (saveCSVFile.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
-            String sFile = saveCSVFile.FileName;
-
-            StreamWriter sw = new StreamWriter(sFile);
-
-            //See https://github.com/openpnp/openpnp/wiki/Importing-Centroid-Data
-
-            //openPnP wants to have "Designator", "Value" (instead of "Name" or "comment"), "X", "Y", "Layer", "Rotation"
-            // they MUST be surronded with "...
-            //that means we will either "Name(Value)" if collapsing is enabled, or we only use "Name"
-
-            //we will write that style into the first line:
-            sw.WriteLine("\"" + Constants.ColumnNames[0] + "\",\"" + Constants.ColumnNames[2] + "\",\"" + Constants.ColumnNames[3] + "\",\"" + 
-                           Constants.ColumnNames[4] + "\",\"" + Constants.ColumnNames[5] + "\",\"" + Constants.ColumnNames[6] + "\"");
-
-            //write a blank line
-            sw.WriteLine();
-            sw.WriteLine();
-
-            //now, write each Part!
-
-            foreach (Part p in parts)
-            {
-                sw.WriteLine(p.ToExport(CollapseNameAndValue, PreferValue));
-            }
-
-            sw.Close();
-            sw.Dispose();
-
-
-
-        }
-
         private void deleteByFootprintToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //write changes from Table to list
@@ -195,6 +149,20 @@ namespace PnPFile_Prerunner
 
             //display the new parts
             DisplayParts();
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //updates parts in case anything was changed inside table
+            RefreshPartsList();
+
+            //instance of the Exporter Window, the ref parts is for exporting the parts...
+            Exporter exporter = new Exporter(ref parts);
+            //open the Exporter window and block the code on parent window
+            exporter.ShowDialog();
+
+            
+
         }
 
         private void mergeValueIntoNameOnExportToolStripMenuItem_Click(object sender, EventArgs e)
