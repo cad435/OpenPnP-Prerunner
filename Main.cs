@@ -26,7 +26,7 @@ namespace PnPFile_Prerunner
 
         private void Main_Load(object sender, EventArgs e)
         {
-            partTable.ColumnCount = 7;
+            partTable.ColumnCount = Constants.NumRelevantColumns;
 
             for (int i = 0; i < Constants.NumRelevantColumns; i++)
             {
@@ -87,13 +87,14 @@ namespace PnPFile_Prerunner
             {
                 if (Row.Cells[0].Value != null)
                 {
-                    parts.Add(new Part(Row.Cells[0].Value.ToString(),
-                                        Row.Cells[1].Value.ToString(),
-                                        Row.Cells[2].Value.ToString(),
-                                        Row.Cells[3].Value.ToString(),
-                                        double.Parse(Row.Cells[4].Value.ToString()),
-                                        double.Parse(Row.Cells[5].Value.ToString()),
-                                        double.Parse(Row.Cells[6].Value.ToString())
+                    parts.Add(new Part(Row.Cells[(int)Constants.NameIDs.DESIGNATOR].Value.ToString(),
+                                        Row.Cells[(int)Constants.NameIDs.NAME].Value.ToString(),
+                                        Row.Cells[(int)Constants.NameIDs.VALUE].Value.ToString(),
+                                        Row.Cells[(int)Constants.NameIDs.FOOTPRINT].Value.ToString(),
+                                        double.Parse(Row.Cells[(int)Constants.NameIDs.CENTERX].Value.ToString()),
+                                        double.Parse(Row.Cells[(int)Constants.NameIDs.CENTERY].Value.ToString()),
+                                        Row.Cells[(int)Constants.NameIDs.LAYER].Value.ToString(),
+                                        double.Parse(Row.Cells[(int)Constants.NameIDs.ROTATION].Value.ToString())
                                         ));
                 }
 

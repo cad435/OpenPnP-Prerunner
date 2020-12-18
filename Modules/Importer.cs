@@ -27,7 +27,9 @@ namespace PnPFile_Prerunner.Modules
             SelectorBoxes[3] = ListCNameFootprint;
             SelectorBoxes[4] = ListCNameCenterX;
             SelectorBoxes[5] = ListCNameCenterY;
-            SelectorBoxes[6] = ListCNameRotation;
+            SelectorBoxes[6] = ListCNameLayer;
+            SelectorBoxes[7] = ListCNameRotation;
+
 
 
             parts = _parts;
@@ -44,7 +46,7 @@ namespace PnPFile_Prerunner.Modules
         private ComboBox[] SelectorBoxes = new ComboBox[Constants.NumRelevantColumns];
         //stores wich Column of the CSV corresponds to wich value inside the programm
         //Values inside the Programm are stored in the order defined in constants 
-        private int[] NewColumnIndex = new int[Constants.NumRelevantColumns] { -1, -1, -1, -1, -1, -1, -1 };
+        private int[] NewColumnIndex = new int[Constants.NumRelevantColumns] { -1, -1, -1, -1, -1, -1, -1 , -1};
 
 
         private void Importer_Load(object sender, EventArgs e)
@@ -90,6 +92,9 @@ namespace PnPFile_Prerunner.Modules
                     ListCNameCenterX.SelectedItem = s;
                 if (s.ToLower().Contains("cen") && s.ToLower().Contains("y"))
                     ListCNameCenterY.SelectedItem = s;
+                if (s.ToLower().Contains("layer"))
+                    ListCNameLayer.SelectedItem = s;
+
 
             }
 
@@ -157,11 +162,6 @@ namespace PnPFile_Prerunner.Modules
                 lblPartsCount.Refresh();
 
             }
-            
-
-
-
-
 
             this.Close();
             this.Dispose();
@@ -191,7 +191,8 @@ namespace PnPFile_Prerunner.Modules
                                                             sColumns[NewColumnIndex[3]],
                                                             sColumns[NewColumnIndex[4]],
                                                             sColumns[NewColumnIndex[5]],
-                                                            sColumns[NewColumnIndex[6]]
+                                                            sColumns[NewColumnIndex[6]],
+                                                            sColumns[NewColumnIndex[7]]
                                                             };
 
             return Sorted;
@@ -203,20 +204,24 @@ namespace PnPFile_Prerunner.Modules
 
             //first, get the Number of designators. This indicates how much parts we need to build.
             //for this we need to spilt the String given in the "Designator" column 
-            String[] Designators = Columns[0].Split(Constants.splitDelimiters);
+            String[] Designators = Columns[(int)Constants.NameIDs.DESIGNATOR].Split(Constants.splitDelimiters);
             int NumParts = Designators.Length;
 
             //Name and Footprint must only be one per line
-            String Name = Columns[1].Trim();
-            String Footprint = Columns[3].Trim();
+            String Name = Columns[(int)Constants.NameIDs.NAME].Trim();
+            String Footprint = Columns[(int)Constants.NameIDs.FOOTPRINT].Trim();
 
             //we also definately need to split CenterXY & Rotation
             //this single lines will also take care of the conversation from string to double --> not bad!
-            double[] CenterX = Array.ConvertAll<String,double>(Columns[4].Split(Constants.splitDelimiters), double.Parse);
-            double[] CenterY = Array.ConvertAll<String, double>(Columns[5].Split(Constants.splitDelimiters), double.Parse);
-            double[] Rotations = Array.ConvertAll<String, double>(Columns[6].Split(Constants.splitDelimiters), double.Parse);
+            double[] CenterX = Array.ConvertAll<String,double>(Columns[(int)Constants.NameIDs.CENTERX].Split(Constants.splitDelimiters), double.Parse);
+            double[] CenterY = Array.ConvertAll<String, double>(Columns[(int)Constants.NameIDs.CENTERY].Split(Constants.splitDelimiters), double.Parse);
+            double[] Rotations = Array.ConvertAll<String, double>(Columns[(int)Constants.NameIDs.ROTATION].Split(Constants.splitDelimiters), double.Parse);
 
-            String[] Values = Columns[2].Split(Constants.splitDelimiters);
+            //Get values
+            String[] Values = Columns[(int)Constants.NameIDs.VALUE].Split(Constants.splitDelimiters);
+            //get Layer
+            String[] Layers = Columns[(int)Constants.NameIDs.LAYER].Split(Constants.splitDelimiters);
+
 
             for (int i = 0; i < NumParts; i++)
             {
@@ -257,6 +262,15 @@ namespace PnPFile_Prerunner.Modules
                 else
                     //Only one Rotation available, use this one for every part
                     p.Rotation = Rotations[0];
+
+
+                //Layer CAN be different, but can also be the same for all parts
+                if (Layers.Length == NumParts)
+                    //get the specific Rotation
+                    p.Layer = Layers[i];
+                else
+                    //Only one Rotation available, use this one for every part
+                    p.Layer = Layers[0];
 
                 parts.Add(p);
             }

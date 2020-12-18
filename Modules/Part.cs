@@ -9,7 +9,7 @@ namespace PnPFile_Prerunner.Modules
     public class Part
     {
         //safe designator. Everything will be filled in for you!
-        public Part(String _Designator, String _Name, String _Value, String _Footprint, double _CenterX, double _CenterY, double _Rotation)
+        public Part(String _Designator, String _Name, String _Value, String _Footprint, double _CenterX, double _CenterY, String _Layer ,double _Rotation)
         {
             Name = _Name;
             Designator = _Designator;
@@ -18,6 +18,7 @@ namespace PnPFile_Prerunner.Modules
             CenterY = _CenterY;
             Rotation = _Rotation;
             Value = _Value;
+            Layer = _Layer;
 
         }
 
@@ -33,12 +34,13 @@ namespace PnPFile_Prerunner.Modules
         public String Value;
         public double CenterX;
         public double CenterY;
+        public String Layer;
         public double Rotation;
 
 
         public String[] ToTable()
         {
-            return new String[] { Designator, Name, Value, Footprint, CenterX.ToString(), CenterY.ToString(), Rotation.ToString() };
+            return new String[] { Designator, Name, Value, Footprint, CenterX.ToString(), CenterY.ToString(), Layer, Rotation.ToString() };
         }
 
         

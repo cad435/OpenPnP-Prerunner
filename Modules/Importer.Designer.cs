@@ -47,11 +47,13 @@
             this.ListCNameName = new System.Windows.Forms.ComboBox();
             this.LoadProgressBar = new System.Windows.Forms.ProgressBar();
             this.lblPartsCount = new System.Windows.Forms.Label();
+            this.ListCNameLayer = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdCancelCSVLoad
             // 
-            this.cmdCancelCSVLoad.Location = new System.Drawing.Point(776, 92);
+            this.cmdCancelCSVLoad.Location = new System.Drawing.Point(903, 92);
             this.cmdCancelCSVLoad.Name = "cmdCancelCSVLoad";
             this.cmdCancelCSVLoad.Size = new System.Drawing.Size(121, 23);
             this.cmdCancelCSVLoad.TabIndex = 33;
@@ -102,7 +104,7 @@
             // ListCNameRotation
             // 
             this.ListCNameRotation.FormattingEnabled = true;
-            this.ListCNameRotation.Location = new System.Drawing.Point(776, 65);
+            this.ListCNameRotation.Location = new System.Drawing.Point(903, 65);
             this.ListCNameRotation.Name = "ListCNameRotation";
             this.ListCNameRotation.Size = new System.Drawing.Size(121, 21);
             this.ListCNameRotation.TabIndex = 28;
@@ -144,7 +146,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(773, 49);
+            this.label5.Location = new System.Drawing.Point(900, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 23;
@@ -217,7 +219,7 @@
             // 
             this.LoadProgressBar.Location = new System.Drawing.Point(13, 146);
             this.LoadProgressBar.Name = "LoadProgressBar";
-            this.LoadProgressBar.Size = new System.Drawing.Size(883, 23);
+            this.LoadProgressBar.Size = new System.Drawing.Size(1011, 23);
             this.LoadProgressBar.TabIndex = 34;
             // 
             // lblPartsCount
@@ -231,12 +233,33 @@
             this.lblPartsCount.TabIndex = 35;
             this.lblPartsCount.Text = "Lines to Process:";
             // 
+            // ListCNameLayer
+            // 
+            this.ListCNameLayer.FormattingEnabled = true;
+            this.ListCNameLayer.Location = new System.Drawing.Point(776, 65);
+            this.ListCNameLayer.Name = "ListCNameLayer";
+            this.ListCNameLayer.Size = new System.Drawing.Size(121, 21);
+            this.ListCNameLayer.TabIndex = 37;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(773, 49);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Layer";
+            // 
             // Importer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(908, 190);
+            this.ClientSize = new System.Drawing.Size(1045, 188);
+            this.Controls.Add(this.ListCNameLayer);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lblPartsCount);
             this.Controls.Add(this.LoadProgressBar);
             this.Controls.Add(this.cmdCancelCSVLoad);
@@ -285,5 +308,7 @@
         private System.Windows.Forms.ComboBox ListCNameName;
         private System.Windows.Forms.ProgressBar LoadProgressBar;
         private System.Windows.Forms.Label lblPartsCount;
+        private System.Windows.Forms.ComboBox ListCNameLayer;
+        private System.Windows.Forms.Label label8;
     }
 }
