@@ -165,10 +165,6 @@ namespace PnPFile_Prerunner
 
         }
 
-        private void mergeValueIntoNameOnExportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mergeValueIntoNameOnExportToolStripMenuItem.Checked = !mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-        }
 
         private void mergeValueIntoNameOnExportToolStripMenuItem_MouseEnter(object sender, EventArgs e)
         {
@@ -178,11 +174,6 @@ namespace PnPFile_Prerunner
         private void mergeValueIntoNameOnExportToolStripMenuItem_MouseLeave(object sender, EventArgs e)
         {
             offsetToolStripMenuItem.DropDown.AutoClose = true;
-        }
-
-        private void preferValueOverDescriptionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            preferValueOverDescriptionToolStripMenuItem.Checked = !preferValueOverDescriptionToolStripMenuItem.Checked;
         }
 
         private void preferValueOverDescriptionToolStripMenuItem_MouseEnter(object sender, EventArgs e)
@@ -226,8 +217,8 @@ namespace PnPFile_Prerunner
             sw.WriteLine();
             sw.WriteLine();
 
-            bool CollapseNameAndValue = mergeValueIntoNameOnExportToolStripMenuItem.Checked;
-            bool PreferValue = preferValueOverDescriptionToolStripMenuItem.Checked;
+            bool CollapseNameAndValue = true;
+            bool PreferValue = true;
 
             String s;
 

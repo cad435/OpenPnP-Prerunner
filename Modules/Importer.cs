@@ -129,6 +129,12 @@ namespace PnPFile_Prerunner.Modules
                 NewColumnIndex[i] = SelectorBoxes[i].SelectedIndex;
             }
 
+            if (NewColumnIndex.Contains<int>(-1))
+            {
+                lblPartsCount.Text = "Not every field selected!";
+                return;
+            }
+
             //actually add the Parts:
 
             //open File 
